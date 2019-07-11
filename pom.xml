@@ -19,7 +19,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
 
         <!-- spring 版本号 -->
-        <spring.version>5.0.4.RELEASE</spring.version>
+        <spring.version>5.1.8.RELEASE</spring.version>
         <!-- mybatis 版本号 -->
         <mybatis.version>3.5.1</mybatis.version>
         <!-- mybatis_spring整合 版本号 -->
@@ -32,7 +32,7 @@
         <!-- jackson包版本-->
         <jackson.version>2.9.9</jackson.version>
         <!-- fastjson 版本号-->
-        <fastjson.version>1.1.41</fastjson.version>
+        <fastjson.version>1.2.58</fastjson.version>
         <!-- jstl 版本号-->
         <jstl.version>1.2</jstl.version>
         <!-- commons-dbcp 版本号-->
