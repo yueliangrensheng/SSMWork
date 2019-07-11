@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/task
+   		http://www.springframework.org/schema/task/spring-task-4.2.xsd">
+    <!-- 加载属性文件 -->
+    <context:property-placeholder location="classpath:resource.properties"/>
+    <!-- 配置扫描 器 @Controller -->
+    <context:component-scan base-package="com.yazao.polaris.controller"/>
+    <!-- 配置处理器映射器和适配器 -->
+    <mvc:annotation-driven/>
+    <!-- resources : 指示Spring MVC 哪些静态资源需要单独处理（不通过Dispatcher Servlet）-->
+    <!-- 第一个resources，确保/css目录下的所有文件可见。 第二个resources，允许显示所有的.html文件 -->
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/*.html" location="/"/>
+    <!-- 配置视图解释器 jsp -->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <!-- ==================================== 其他配置 begin ==================================== -->
+
+    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
+<!--    <bean id="multipartResolver"-->
+<!--          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+<!--        &lt;!&ndash; 默认编码 &ndash;&gt;-->
+<!--        <property name="defaultEncoding" value="utf-8"/>-->
+<!--        &lt;!&ndash; 文件大小最大值 &ndash;&gt;-->
+<!--        <property name="maxUploadSize" value="10485760000"/>-->
+<!--        &lt;!&ndash; 内存中的最大值 &ndash;&gt;-->
+<!--        <property name="maxInMemorySize" value="40960"/>-->
+<!--    </bean>-->
+
+    <!-- ==================================== 其他配置 end ==================================== -->
+</beans>
