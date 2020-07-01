@@ -28,7 +28,7 @@
         <mysql-connector.version>5.1.30</mysql-connector.version>
         <!-- log4j 日志文件管理包版本 -->
         <slf4j.version>1.7.25</slf4j.version>
-        <log4j.version>2.9.0</log4j.version>
+        <log4j.version>2.13.2</log4j.version>
         <!-- jackson包版本-->
         <jackson.version>2.9.9</jackson.version>
         <!-- fastjson 版本号-->
